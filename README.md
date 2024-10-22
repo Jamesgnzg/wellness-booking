@@ -1,3 +1,13 @@
+/\*\*
+
+- Project Name: Wellness booking
+- Description: An application that emulates a booking transaction for SPA services.
+-
+- Author: James Gonzaga
+- Email: j.jgonzaga03@gmail.com
+- Date: October 10, 2024
+  \*/
+
 ### Prerequisites
 
 Before running the application, make sure you have the following installed:
