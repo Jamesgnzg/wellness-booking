@@ -118,7 +118,7 @@ const ServiceBooking: React.FC = (): ReactElement => {
             disabled={appointmentDetails?.appointmentDateTime == null}
             onClick={showNextStep}
           >
-            Continue
+            {"Continue >"}
           </button>
         </div>
       </div>

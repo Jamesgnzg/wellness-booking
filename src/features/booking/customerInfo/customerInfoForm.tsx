@@ -129,7 +129,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
             type="submit"
             className="py-3 px-4 inline-flex items-center gap-x-2 text-md font-medium rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:bg-indigo-200 disabled:opacity-50 disabled:pointer-events-none"
           >
-            Continue
+            {"Continue >>"}
           </button>
         </form>
       </div>

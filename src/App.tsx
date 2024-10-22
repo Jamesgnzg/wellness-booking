@@ -1,3 +1,12 @@
+/**
+ * Project Name: Wellness booking
+ * Description: An application that emulates a booking transaction for SPA services.
+ *
+ * Author: James Gonzaga
+ * Email: j.jgonzaga03@gmail.com
+ * Date: October 10, 2024
+ */
+
 import { ReactElement } from "react";
 import { Helmet } from "react-helmet-async";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";

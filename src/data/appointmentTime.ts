@@ -1,4 +1,6 @@
-export const appointmentTime = [
+import { IAppointmentTime } from "../interface/AppointmentTime";
+
+export const appointmentTime: IAppointmentTime[] = [
   {
     id: 0,
     timeLabel: "10:00AM",

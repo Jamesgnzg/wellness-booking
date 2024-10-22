@@ -1,4 +1,6 @@
-export const services = [
+import { IServices } from "../interface/Services";
+
+export const services: IServices[] = [
   {
     id: 0,
     name: "Physiotherapy",

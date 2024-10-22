@@ -5,6 +5,7 @@
 @layer base {
   @font-face {
     font-family: "ArefRuqaa";
-    src: url(./assets/fonts/ArefRuqaa-Regular.ttf) format("truetype");
+    font-weight: 400;
+    src: url(./assets/fonts/ArefRuqaa-Bold.ttf) format("truetype");
   }
 }
