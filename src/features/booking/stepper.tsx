@@ -1,8 +1,10 @@
 import { ReactElement } from "react";
 import { useAppointment } from "../../context/AppointmentContext";
+import { bookings } from "../../enums/bookings";
 
 const Stepper: React.FC = (): ReactElement => {
   const { currentStep } = useAppointment();
+  const { SERVICE, INFO, CONFIRMATION } = bookings;
 
   const activeBackground =
     "flex items-center font-medium px-4 py-5 w-full rounded-xl rounded-r-[100px] bg-indigo-50 ml-0.5";
@@ -16,7 +18,7 @@ const Stepper: React.FC = (): ReactElement => {
   return (
     <ol
       className={
-        currentStep == "Confirmation"
+        currentStep == CONFIRMATION
           ? `flex items-center w-full space-y-4 border border-indigo-600 rounded-lg lg:space-y-0 rounded-r-[100px] pr-0.5`
           : `flex items-center w-full space-y-4 border border-indigo-600 rounded-lg lg:space-y-0`
       }
@@ -24,12 +26,12 @@ const Stepper: React.FC = (): ReactElement => {
       <li className="flex-1">
         <a
           className={
-            currentStep == "Service" ? activeBackground : defaultBackground
+            currentStep == SERVICE ? activeBackground : defaultBackground
           }
         >
           <span
             className={
-              currentStep == "Service"
+              currentStep == SERVICE
                 ? activeNumberBackground
                 : defaultNumberBackground
             }
@@ -41,13 +43,11 @@ const Stepper: React.FC = (): ReactElement => {
       </li>
       <li className="flex-1">
         <a
-          className={
-            currentStep == "Info" ? activeBackground : defaultBackground
-          }
+          className={currentStep == INFO ? activeBackground : defaultBackground}
         >
           <span
             className={
-              currentStep == "Info"
+              currentStep == INFO
                 ? activeNumberBackground
                 : defaultNumberBackground
             }
@@ -60,12 +60,12 @@ const Stepper: React.FC = (): ReactElement => {
       <li className="flex-1">
         <a
           className={
-            currentStep == "Confirmation" ? activeBackground : defaultBackground
+            currentStep == CONFIRMATION ? activeBackground : defaultBackground
           }
         >
           <span
             className={
-              currentStep == "Confirmation"
+              currentStep == CONFIRMATION
                 ? activeNumberBackground
                 : defaultNumberBackground
             }

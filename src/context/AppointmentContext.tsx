@@ -1,14 +1,13 @@
 import { createContext, useContext, useState } from "react";
 import { IAppointmentDetails } from "../interface/AppointmentDetails";
 import { IServices } from "../interface/Services";
+import { bookings } from "../enums/bookings";
 
 type TAppointmentContextProps = {
   children: React.ReactNode;
 };
 
-const SERVICE = "Service";
-const INFO = "Info";
-const CONFIRMATION = "Confirmation";
+const { SERVICE, INFO, CONFIRMATION } = bookings;
 
 type TBookingSteps = typeof SERVICE | typeof INFO | typeof CONFIRMATION;
 
