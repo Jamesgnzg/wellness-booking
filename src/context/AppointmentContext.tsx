@@ -6,16 +6,22 @@ type TAppointmentContextProps = {
   children: React.ReactNode;
 };
 
+const SERVICE = "Service";
+const INFO = "Info";
+const CONFIRMATION = "Confirmation";
+
+type TBookingSteps = typeof SERVICE | typeof INFO | typeof CONFIRMATION;
+
 type TAppointmentContextType = {
   clientService: IServices | null;
   appointmentDetails: IAppointmentDetails;
-  currentStep: "Service" | "Info" | "Confirmation";
+  currentStep: TBookingSteps;
   confirmedAppointments: IAppointmentDetails[];
   updateClientService: (service: IServices | null) => void;
   updateAppointmentDetails: (field: string, value: string | number) => void;
   updateAppointmentSchedule: (schedule: Date, slot: number) => void;
   updateConfirmedAppointments: (appointment: IAppointmentDetails) => void;
-  updateBookingStep: (step: "Service" | "Info" | "Confirmation") => void;
+  updateBookingStep: (step: TBookingSteps) => void;
   clearCurrentAppointment: () => void;
 };
 
@@ -37,9 +43,7 @@ export const AppointmentContextProvider = ({
         emailAddress: "",
       },
     });
-  const [currentStep, setCurrentStep] = useState<
-    "Service" | "Info" | "Confirmation"
-  >("Service");
+  const [currentStep, setCurrentStep] = useState<TBookingSteps>(SERVICE);
   const [confirmedAppointments, setConfirmedAppointments] = useState<
     IAppointmentDetails[]
   >([]);
@@ -90,7 +94,7 @@ export const AppointmentContextProvider = ({
         emailAddress: "",
       },
     });
-    setCurrentStep("Service");
+    setCurrentStep(SERVICE);
   };
 
   return (
