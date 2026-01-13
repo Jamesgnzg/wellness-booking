@@ -7,16 +7,17 @@ import ServiceCard from "./serviceCard";
 
 const Appointment: React.FC = (): ReactElement => {
   const { clientService } = useAppointment();
-  const showServicesList = !clientService;
 
   return (
     <>
       <div className="w-full pt-5">
-        {showServicesList &&
+        {clientService ? (
+          <ServiceBooking />
+        ) : (
           services.map((service: IServices) => (
             <ServiceCard key={service.id} service={service} />
-          ))}
-        {clientService && <ServiceBooking />}
+          ))
+        )}
       </div>
     </>
   );
