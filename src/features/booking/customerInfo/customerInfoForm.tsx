@@ -63,10 +63,12 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
       errors.emailError = "Email is required";
       hasErrors = true;
     } else {
-      const isValidEmail = emailFormat.test(emailAddress);
+      const invalidEmail = !emailFormat.test(emailAddress);
 
-      errors.emailError = "Email is not in correct format";
-      hasErrors = isValidEmail;
+      if (invalidEmail) {
+        errors.emailError = "Email is not in correct format";
+        hasErrors = true;
+      }
     }
 
     if (phoneNumber) {
@@ -116,7 +118,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
               autoFocus={false}
             />
           </div>
-          <Input
+          {/*  <Input
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
@@ -128,7 +130,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
             fieldError={formError.phoneNumberError}
             value={phoneNumber}
             autoFocus={false}
-          />
+          /> */}
           <Input
             type="email"
             id="emailAddress"
