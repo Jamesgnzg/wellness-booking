@@ -45,8 +45,18 @@ const Input: React.FC<IinputProps> = ({
         className={fieldError ? inputErrorStyle : inputDefaultStyle}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => updateField(name, e.target.value)}
-        pattern={pattern}
+        onChange={(e) => {
+          let inputValue = "";
+
+          if (pattern) {
+            const regexPattern = new RegExp(pattern, "g");
+            inputValue = e.target.value.replace(regexPattern, "");
+          } else {
+            inputValue = e.target.value;
+          }
+
+          updateField(name, inputValue);
+        }}
         autoFocus={autoFocus}
       />
       <p className="mb-5 text-sm text-red-600 dark:text-red-500">

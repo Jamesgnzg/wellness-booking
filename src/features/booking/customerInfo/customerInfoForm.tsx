@@ -32,6 +32,8 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
   };
 
   const isFormValid = (): boolean => {
+    const phoneNumberFormat = /[0-9]{2}-[0-9]{10}/g;
+    const emailFormat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g;
     const errors = {
       firstNameError: "",
       lastNameError: "",
@@ -60,6 +62,18 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
     if (emailAddress == "") {
       errors.emailError = "Email is required";
       hasErrors = true;
+    } else {
+      const isValidEmail = emailFormat.test(emailAddress);
+
+      errors.emailError = "Email is not in correct format";
+      hasErrors = isValidEmail;
+    }
+
+    if (phoneNumber) {
+      const validPhoneNumber = phoneNumberFormat.test(phoneNumber);
+
+      errors.phoneNumberError = "Phone Number is not in correct format";
+      hasErrors = validPhoneNumber;
     }
 
     setFormErrors({ ...errors });
@@ -84,6 +98,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
               updateField={updateAppointmentDetails}
               fieldError={formError.firstNameError}
               value={firstName}
+              pattern="[^A-Za-z]"
               required
               autoFocus={true}
             />
@@ -96,6 +111,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
               updateField={updateAppointmentDetails}
               fieldError={formError.lastNameError}
               value={lastName}
+              pattern="[^a-zA-Z]"
               required
               autoFocus={false}
             />
@@ -107,7 +123,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
             label="Phone Number"
             optional={true}
             placeholder="Enter Phone number (E.g. +63-9802521993)"
-            pattern="+[0-9]{2}-[0-9]{10}"
+            pattern="[^+0-9-]"
             updateField={updateAppointmentDetails}
             fieldError={formError.phoneNumberError}
             value={phoneNumber}
