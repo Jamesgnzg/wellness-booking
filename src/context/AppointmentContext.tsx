@@ -38,7 +38,7 @@ export const AppointmentContextProvider = ({
       clientInfo: {
         firstName: "",
         lastName: "",
-        phoneNumber: undefined,
+        phoneNumber: "",
         emailAddress: "",
       },
     });

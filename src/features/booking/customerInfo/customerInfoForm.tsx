@@ -118,7 +118,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
               autoFocus={false}
             />
           </div>
-          {/*  <Input
+          <Input
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
@@ -130,7 +130,7 @@ const CustomerInfoForm: React.FC = (): ReactElement => {
             fieldError={formError.phoneNumberError}
             value={phoneNumber}
             autoFocus={false}
-          /> */}
+          />
           <Input
             type="email"
             id="emailAddress"
