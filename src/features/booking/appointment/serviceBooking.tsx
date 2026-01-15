@@ -93,6 +93,10 @@ const ServiceBooking: React.FC = (): ReactElement => {
             <div className="flex-auto pt-3">
               <p className="mb-5 text-center text-lg">
                 {convertDateFormat(bookingDate)}
+                {appointmentDetails.appointmentDateTime &&
+                  ` - ${bookingDate.toLocaleTimeString("en-US", {
+                    timeStyle: "short",
+                  })}`}
               </p>
               <div className="grid grid-cols-4 gap-4">
                 {availableTime.map((time, index) => (
